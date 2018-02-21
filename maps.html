@@ -27,8 +27,9 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 
-  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?&sensor=true">
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGEGztWm54Qpc3kWUt0QajIfPOhMFicoY&sensor=true">
   </script>
+  
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
@@ -99,7 +100,7 @@
 
       google.maps.event.addListener(marker, 'click', (function(marker, i) {
         return function() {
-          infowindow.setContent("Paola");
+          infowindow.setContent("Celeste");
           infowindow.open(map, marker);
         }
       })(marker, i));
@@ -208,14 +209,15 @@
 
       var lat = 19.0433;
       var lng = -98.2019;
-      var apiKey = "781f8d6f2ba165d4c4b683c9a3eae895";
+      var apiKey = "c61c7c05691084d27b7d1f9e0774e25d";
       //funcion jquery, le pasas como parametro url
-      $.getJSON("http://api.openweathermap.org/data/2.5/weather?lat=" +
+     // $.getJSON("http://api.openweathermap.org/data/2.5/weather?lat=" +
+      $.getJSON("api.openweathermap.org/data/2.5/forecast?id=524901&APPID=c61c7c05691084d27b7d1f9e0774e25d?lat=" +
         lat + "&lon=" + lng + "&appid=" + apiKey,
         function(data) {
           //alert(JSON.stringify(data)); //parsea la informacion obtenida y la muestra
           var tem = JSON.stringify(data.main.temp);
-          document.getElementById("tempDisplay").value = tem-273.15;
+          document.getElementById("tempDisplay").value = tem -273.15;
           var hum = JSON.stringify(data.main.humidity);
           document.getElementById("humDisplay").value = hum;
           var vient = JSON.stringify(data.wind.speed);
